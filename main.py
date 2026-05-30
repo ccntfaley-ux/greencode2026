@@ -1,5 +1,5 @@
 # start here
-import threading
+iimport threading
 from pynput import keyboard
 from python_goto import goto
 import os
@@ -52,12 +52,20 @@ listener = keyboard.Listener(
     on_press=on_press,
     on_release=on_release)
 listener.start()
-start_loop(ky[0])
-g = 0
-print(start_time)
-while g == 0:
-    release_time+=1
+for i in range(9):
+    g = 0
+    start_loop(ky[i])
+    g = 0
+    print(start_time)
+    while g == 0:
+        release_time+=1
 
-    if prev_key:
-        print(prev_key)
-        g = 1
+        if prev_key:
+            print(prev_key)
+            g = 1
+
+    # put function for detection here
+
+    start_time = 0
+    prev_key = 0
+
