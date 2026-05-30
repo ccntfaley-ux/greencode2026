@@ -7,7 +7,7 @@ import time
 global ky
 al = "b"
 global o
-
+prev_key = 0
 g = 0
 def on_press(key, injected):
     global al
@@ -52,3 +52,5 @@ listener = keyboard.Listener(
     on_release=on_release)
 listener.start()
 start_loop(ky[0])
+if prev_key:
+    print(prev_key)
