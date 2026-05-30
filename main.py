@@ -64,7 +64,12 @@ for i in range(9):
             g = 1
 
     # put function for detection here
+    pass_name = "start" + str(i)
+    exec("%s = %d" % (pass_name, start_time))
+    pass_name = "release" + str(i)
+    exec("%s = %d" % (pass_name, release_time))
 
+    
     start_time = 0
     prev_key = 0
 
