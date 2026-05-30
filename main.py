@@ -1,4 +1,3 @@
-# start here
 import threading
 from pynput import keyboard
 from python_goto import goto
@@ -47,7 +46,7 @@ if ky.lower() != "dvorak" :
     ky = qwerty
 else:
     ky = dvorak
-input("press enter when ready to drag (drag starting/n from second row of charaters first to end of letters )")
+input("press enter when ready to drag (drag one key at a time starting from second row of charaters first to end of letters )")
 listener = keyboard.Listener(
     on_press=on_press,
     on_release=on_release)
