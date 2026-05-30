@@ -1,5 +1,5 @@
 # start here
-iimport threading
+import threading
 from pynput import keyboard
 from python_goto import goto
 import os
