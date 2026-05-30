@@ -7,45 +7,48 @@ import time
 global ky
 al = "b"
 global o
+
+g = 0
 def on_press(key, injected):
     global al
     
     al = key
-    
+def start_loop(detect_key):
+    global g
+    global start_time
+    while g == 0:
+        start_time+=1 
+        if detect_key in str(al):
+            g = 1
+        
+   
+    return(start_time)
         
 def on_release(key, injected):
-    print('{} released; it was {}'.format(
-        key, 'faked' if injected else 'not faked'))
-    if key == keyboard.Key.esc:
-        # Stop listener
-        return False
+    global release_time
+    global prev_key
+    prev_key = release_time
+
+    release_time = 0
+    
 d = 0
 start_time = 0
 ky = ""
 al = 65
-g = 0
+
 trn = 1
 nxt = 2
 sve = 1
 qwerty = ["a","s","d","f","g","h","j","k","l"]
-
-ky = input("What is your keyboard layout qwerty [qwerty]")
-if ky.lower() != "qwerty":
-    ky = "qwerty"
+dvorak = ["a","o","e","u","i","d","h","t","n"]
+ky = input("What is your keyboard layout qwerty,dvorak [qwerty]")
+if ky.lower() != "dvorak" :
+    ky = qwerty
+else:
+    ky = dvorak
 input("press enter when ready to drag (drag starting/n from second row of charaters first to end of letters )")
 listener = keyboard.Listener(
     on_press=on_press,
     on_release=on_release)
 listener.start()
-while g == 0:
-    start_time+=1 
-    if "a" in str(al):
-        g = 1
-        print("dhue")
-    else:
-        print(al)
-        
-        
-   
-
-print(start_time)
+start_loop(ky[0])
