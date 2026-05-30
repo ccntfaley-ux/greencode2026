@@ -47,7 +47,7 @@ else:
     ky = dvorak
 mode = input("Captcha or password [password]")
 
-input("press enter when ready to press (press one key at a time starting from second row of charaters first to end of letters )")
+input("press enter when ready to press the first 9 characters in home row at a slow memorable,rythmic pace")
 listener = keyboard.Listener(
     on_press=on_press,
     on_release=on_release)
@@ -103,7 +103,7 @@ brange6 = [release6-400000,release6 + 400000]
 brange7 = [release7-400000,release7 + 400000]
 brange8 = [release8-400000,release8 + 400000]
 print("password mode, please enter password")
-input("press enter when ready to press (press? one key at a time starting from second row of charaters first to end of letters )")
+input("press enter when ready to press the first 9 characters in home row at a slow memorable,rythmic pace")
 for i in range(9):
     g = 0
     start_loop(ky[i])
