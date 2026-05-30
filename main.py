@@ -46,6 +46,8 @@ if ky.lower() != "dvorak" :
     ky = qwerty
 else:
     ky = dvorak
+mode = input("Captcha or password [password]")
+
 input("press enter when ready to drag (drag one key at a time starting from second row of charaters first to end of letters )")
 listener = keyboard.Listener(
     on_press=on_press,
@@ -62,14 +64,24 @@ for i in range(9):
         if prev_key:
             print(prev_key)
             g = 1
-
-    # put function for detection here
     pass_name = "start" + str(i)
     exec("%s = %d" % (pass_name, start_time))
     pass_name = "release" + str(i)
     exec("%s = %d" % (pass_name, release_time))
 
-    
+   
     start_time = 0
     prev_key = 0
+
+if mode.lower() == "captcha":
+    human_start_number = start1 - start2 + start3 - start4 + start5 - start6 + start7 - start8
+    human_release_number = release1 - release2 + release3 - release4 + release5 - release6 + release7 - release8
+    if human_start_number >= 100 or human_start_number <= 100:
+        if human_release_number >= 100 or human_release_number <= 100:
+            print("you are human")
+        else:
+            print("you are an robot")
+    else:
+        print("you are an robot")
+
 
